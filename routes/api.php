@@ -18,5 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->group(function () {
 
     Route::post('/register', [UserController::class, 'store']); // Создать нового пользователя
-    Route::get('/users', [UserController::class, 'index']); // Получить список всех пользователей
+    Route::get('/user/{id}', [UserController::class, 'show']); // Получить пользователя по ID
+    Route::put('/{id}', [UserController::class, 'update']); // Обновить пользователя
+    Route::get('/users', [UserController::class, 'index']); // Получить всех пользователей
+    Route::delete('/user/{id}', [UserController::class, 'destroy']); // Удалить пользователя
 });
